@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,11 +18,113 @@
 }
 
 body {
+  overflow-x: hidden;
+  height: 100vh;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.blur-element {
+  transition: filter 1s ease-in;
+  /* Add transition for the filter property */
+}
+
+.blur-applied {
+  filter: blur(3px);
+}
+
+.slider-div {
+  width: 90vw;
+}
+
+.slider-div>div {
+  flex-wrap: nowrap !important;
+}
+
+.my-svg-text {
+  position: relative;
+  background-color: #b497b247;
+  min-height: 100px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+
+  /* padding-block: 2%;
+  width: 100%;
+  font-size: 1em;
+  font-family: 'Russo One', cursive, sans-serif; */
+}
+
+@keyframes display-text {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.my-svg-text h5 {
+  position: absolute;
+  color: #fff;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 900;
+  left: 58%;
+  top: 50%;
+  width: 100%;
+}
+
+.my-svg-text h5:nth-child(1) {
+  color: transparent;
+  -webkit-text-stroke: 1px #292e2e;
+}
+
+.my-svg-text h5:nth-child(2) {
+  color: #bcebef;
+  animation: animate 2.5s ease-in-out infinite;
+}
+
+@keyframes animate {
+
+  0%,
+  100% {
+    clip-path: polygon(0 35%, 19% 53%, 36% 68%, 52% 75%, 68% 70%, 85% 82%, 100% 77%, 100% 100%, 0 100%);  }
+
+  20% {
+    clip-path: polygon(0 2%, 19% 38%, 19% 38%, 31% 57%, 55% 66%, 79% 78%, 100% 79%, 100% 100%, 0 100%);
+  }
+
+  40% {
+    clip-path: polygon(0 71%, 17% 66%, 31% 59%, 42% 71%, 66% 68%, 85% 64%, 100% 79%, 100% 100%, 0 100%);
+  }
+  60% {
+    clip-path: polygon(0 70%, 18% 75%, 34% 65%, 50% 54%, 67% 57%, 86% 49%, 100% 21%, 100% 100%, 0 100%);
+  }
+  80%{
+    clip-path: polygon(0 75%, 18% 75%, 37% 75%, 52% 75%, 68% 61%, 81% 44%, 100% 11%, 100% 100%, 0 100%);
+  }
+  90%{
+    clip-path: polygon(0 59%, 14% 61%, 36% 67%, 52% 75%, 62% 71%, 79% 64%, 100% 70%, 100% 100%, 0 100%);
+  }
+}
+
+@media (max-width: 968px) {
+  .my-svg-text h5 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 738px) {
+  .my-svg-text h5 {
+    font-size: 1rem;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
 }

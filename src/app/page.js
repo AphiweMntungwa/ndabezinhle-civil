@@ -1,113 +1,216 @@
-import Image from 'next/image'
+"use client";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+import CustomizedBreadcrumbs from "@/components/breadcrumb/Breadcrumb";
+
+// ** MUI components
+import {
+  Grid,
+  Paper,
+  Typography,
+  Card,
+  Box,
+  Menu,
+  MenuItem,
+  IconButton,
+  AppBar,
+  Container,
+  Toolbar,
+  Avatar,
+  Tooltip,
+  Divider,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Button,
+  TextField,
+  styled,
+  Slide,
+  Zoom,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Chip,
+} from "@mui/material";
+
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+
+const handleDragStart = (e) => e.preventDefault();
+
+const Root = styled("div")(({ theme }) => ({
+  width: "100%",
+  ...theme.typography.body2,
+  "& > :not(style) ~ :not(style)": {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 export default function Home() {
+  const [isBlurApplied, setIsBlurApplied] = useState(false);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsBlurApplied(true);
+    }, 500);
+
+    const intervalId = setInterval(() => {
+      setIndex((prevIndex) => {
+        if (prevIndex < textSlides.length - 1) {
+          return ++prevIndex;
+        } else {
+          return 0;
+        }
+      });
+    }, 4000);
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  const sentence = "From Project Management to site management.";
+  const letters = Array.from(sentence);
+
+  const content = (
+    <Card
+      sx={{
+        width: 300,
+      }}
+    >
+      <CardMedia
+        sx={{ height: 140 }}
+        image="/work-images/1.avif"
+        title="site"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Kingsgate Estate
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          To develop, build and service South Africa’s, especially the Eastern
+          Cape’s requirements for better living, working and traveling
+          conditions in order to improve the quality of life for all.
+          Engineering that makes a difference. The company is dedicated to
+          maintaining professional standards within the Civil Engineering
+          Industry set by ECSA.
+        </Typography>
+      </CardContent>
+      <CardActions
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        <Link href="/projects/1">
+          <Button variant="outlined" sx={{ color: "#000" }}>
+            view more
+          </Button>
+        </Link>
+      </CardActions>
+    </Card>
+  );
+
+  const items = [
+    <Grid key="1" container justifyContent="space-evenly">
+      <Slide direction="down" in={true} mountOnEnter unmountOnExit>
+        <Grid item>{content}</Grid>
+      </Slide>
+    </Grid>,
+    <Grid key="2" container justifyContent="space-evenly">
+      <Slide direction="down" in={true} mountOnEnter unmountOnExit>
+        <Grid item>{content}</Grid>
+      </Slide>
+    </Grid>,
+    <Grid key="3" container justifyContent="space-evenly">
+      <Slide direction="down" in={true} mountOnEnter unmountOnExit>
+        <Grid item>{content}</Grid>
+      </Slide>
+    </Grid>,
+    <Grid key="4" container justifyContent="space-evenly">
+      <Slide direction="down" in={true} mountOnEnter unmountOnExit>
+        <Grid item>{content}</Grid>
+      </Slide>
+    </Grid>,
+  ];
+
+  const textSlides = [
+    <div className="my-svg-text" key="1">
+      <Typography variant="h5">{sentence}</Typography>
+      <Typography variant="h5">{sentence}</Typography>
+    </div>,
+    <div className="my-svg-text" key="2">
+      <Typography variant="h5">
+        Stormwater, Surveying, Subcontracting
+      </Typography>
+      <Typography variant="h5">
+        Stormwater, Surveying, Subcontracting
+      </Typography>
+    </div>,
+  ];
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <Grid
+      container
+      sx={{ width: "100%", margin: 0, overflowX: "hidden" }}
+      flexDirection="column"
+      alignItems="center"
+    >
+      <Grid
+        item
+        className={`blur-element ${isBlurApplied ? "blur-applied" : ""}`}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100vh",
+          zIndex: -1,
+          backgroundImage: "url('/construction.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      ></Grid>
+      <Grid
+        item
+        className="overhead-text"
+        sx={{
+          backgroundColor: "rgba(30, 56, 150, .25)",
+          width: "100%",
+          backgroundImage: "url('/zigzag.jpg')",
+          backgroundSize: "contain",
+          // backgroundRepeat: "no-repeat",
+          // backgroundPosition: "center"
+        }}
+      >
+        <Slide direction="down" in={true} mountOnEnter unmountOnExit>
+          {textSlides[index]}
+        </Slide>
+      </Grid>
+      <CustomizedBreadcrumbs />
+      <Grid
+        item
+        sx={{ fontFamily: "sans-serif", width: "100vw", height: "100%" }}
+      >
+        <AliceCarousel
+          autoPlay
+          autoPlayInterval={3000}
+          infinite
+          responsive={{
+            0: { items: 1 },
+            768: { items: 3 },
+          }}
+          showSlideIndex
+          mouseTracking
+          keyboardNavigation
+          items={items}
+          disableButtonsControls
         />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      </Grid>
+    </Grid>
+  );
 }
