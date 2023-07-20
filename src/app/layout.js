@@ -31,11 +31,11 @@ import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Civil Engineer Portfolio",
-  description:
-    "A civil engineering portfolio website for Ndabezinhle Mntungwa.",
-};
+// export const metadata = {
+//   title: "Civil Engineer Portfolio",
+//   description:
+//     "A civil engineering portfolio website for Ndabezinhle Mntungwa.",
+// };
 
 export default function RootLayout(props) {
   const [anchorElNav, setAnchorElNav] = useState(null);
