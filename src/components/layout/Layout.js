@@ -31,7 +31,7 @@ export default function Layout(props) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
-  const pages = ["Products", "Pricing", "Blog"];
+  const pages = ["Products", "Pricing"];
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   const handleOpenNavMenu = (event) => {
@@ -124,29 +124,30 @@ export default function Layout(props) {
                 >
                   {pages.map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                      <a href="/bbc.pdf" download="/bbc.pdf">
+                        {page}
+                      </a>
                     </MenuItem>
                   ))}
                 </Menu>
               </Box>
+
               {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
-              <Link href="/">
-                <Typography
-                  variant="h5"
-                  noWrap
-                  sx={{
-                    mr: 2,
-                    display: { xs: "flex", md: "none" },
-                    flexGrow: 1,
-                    fontFamily: "monospace",
-                    fontWeight: 700,
-                    letterSpacing: ".3rem",
-                    textDecoration: "none",
-                  }}
-                >
-                  NDABA
-                </Typography>
-              </Link>
+              <Typography
+                variant="h5"
+                noWrap
+                sx={{
+                  mr: 2,
+                  display: { xs: "flex", md: "none" },
+                  flexGrow: 1,
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  letterSpacing: ".3rem",
+                  textDecoration: "none",
+                }}
+              >
+                <Link href="/">NDABA</Link>
+              </Typography>
 
               <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
                 {pages.map((page) => (
@@ -155,7 +156,9 @@ export default function Layout(props) {
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "black", display: "block" }}
                   >
-                    {page}
+                    <a href="/bbc.pdf" download="/bbc.pdf">
+                      {page}
+                    </a>
                   </Button>
                 ))}
               </Box>

@@ -6,9 +6,9 @@ import Layout from "@/components/layout/Layout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Civil Engineer Portfolio",
-  description:
-    "A civil engineering portfolio website for Ndabezinhle Mntungwa.",
+  title: "Construction Portfolio Site",
+  description: `A construction portfolio website for Ndabezinhle Mntungwa for
+    potential employers or clients to see my projects reach out`,
 };
 
 export default function RootLayout(props) {

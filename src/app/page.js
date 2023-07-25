@@ -181,7 +181,7 @@ export default function Home() {
         sx={{
           backgroundColor: "rgba(30, 56, 150, .25)",
           width: "100%",
-          backgroundImage: "url('/zigzag.jpg')",
+          backgroundImage: "url('/zigzag.png')",
           backgroundSize: "contain",
           // backgroundRepeat: "no-repeat",
           // backgroundPosition: "center"

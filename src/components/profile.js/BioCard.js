@@ -28,10 +28,7 @@ export default function BioCard() {
       }}
     >
       <CardContent sx={{ alignItems: "center", textAlign: "center" }}>
-        <Avatar
-          src="/ndabo.jpg"
-          sx={{ "--Avatar-size": "4rem" }}
-        />
+        <Avatar src="/ndabo.jpg" sx={{ "--Avatar-size": "4rem" }} />
         <Chip
           size="sm"
           variant="soft"
@@ -45,13 +42,14 @@ export default function BioCard() {
           PRO
         </Chip>
         <Typography fontSize="lg" fontWeight="lg" sx={{ mt: 1, mb: 0.5 }}>
-          Ndabezinhle Mntungwa 
+          Ndabezinhle Mntungwa
         </Typography>
-        <Typography level="body2" sx={{ maxWidth: "24ch" }}>
-          Hello, this is my bio and I am a PRO member of MUI. I am a developer
-          and I love to solve problems, from enviromental problems to
-          engineering problems, anything to make sure that projects finish
-          without wasting too many resources.
+        <Typography level="body2" sx={{ maxWidth: "29ch" }}>
+          Hello, my name is Ndabezinhle and I work in civil engineering and
+          construction management. I have considerable experience in the field
+          and have a great reputation for doing quality work while keeping
+          business needs in mind like reducing the cost of projects or the time
+          they take
         </Typography>
         <Box
           sx={{
@@ -62,17 +60,37 @@ export default function BioCard() {
           }}
         >
           <IconButton size="sm" variant="plain" color="neutral">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/ndabezinhle-mntungwa-b18606213/"
             >
-              <path
-                fill="currentColor"
-                d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5Z"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"
+                />
+              </svg>
+            </a>
+          </IconButton>
+          <IconButton size="sm" variant="plain" color="neutral">
+            <a target="_blank" href="https://facebook.com/msinga.mntungwa">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5Z"
+                />
+              </svg>
+            </a>
           </IconButton>
           <IconButton size="sm" variant="plain" color="neutral">
             <svg
@@ -104,19 +122,6 @@ export default function BioCard() {
               />
             </svg>
           </IconButton>
-          <IconButton size="sm" variant="plain" color="neutral">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M19.989 11.572a7.96 7.96 0 0 0-1.573-4.351a9.757 9.757 0 0 1-.92.87a13.156 13.156 0 0 1-3.313 2.01c.167.35.32.689.455 1.009v.003c.027.061.05.118.094.229l.017.04c1.513-.17 3.109-.107 4.656.103c.206.027.4.056.584.087Zm-9.385-7.45a46.15 46.15 0 0 1 2.692 4.27c1.223-.482 2.234-1.09 3.048-1.767c.33-.274.594-.532.796-.755A7.968 7.968 0 0 0 12 4c-.476 0-.942.042-1.396.121ZM4.253 9.997a29.21 29.21 0 0 0 2.04-.123a31.53 31.53 0 0 0 4.862-.822a54.36 54.36 0 0 0-2.7-4.227a8.018 8.018 0 0 0-4.202 5.172Zm1.53 7.038a14.21 14.21 0 0 1 1.575-1.899c1.454-1.49 3.17-2.65 5.156-3.29l.062-.018c-.165-.364-.32-.689-.476-.995c-1.836.535-3.77.869-5.697 1.042c-.94.085-1.783.122-2.403.128a7.966 7.966 0 0 0 1.784 5.032Zm9.221 2.38a35.951 35.951 0 0 0-1.632-5.709c-2 .727-3.596 1.79-4.829 3.058a9.77 9.77 0 0 0-1.317 1.655A7.964 7.964 0 0 0 12 20a7.977 7.977 0 0 0 3.005-.583Zm1.874-1.075a7.998 7.998 0 0 0 2.987-4.87c-.34-.085-.771-.17-1.245-.236a12.025 12.025 0 0 0-3.18-.033a39.39 39.39 0 0 1 1.438 5.14ZM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10Z"
-              />
-            </svg>
-          </IconButton>
         </Box>
       </CardContent>
       <CardOverflow sx={{ bgcolor: "background.level1" }}>
@@ -125,8 +130,15 @@ export default function BioCard() {
             variant="outlined"
             sx={{ bgcolor: "background.surface" }}
           >
-            <Button>Message</Button>
-            <Button>Connect</Button>
+            <Button className="flex justify-center items-center">
+              <a
+                style={{ width: "100%", padding: "3%" }}
+                href="/cv.pdf"
+                download="/cv.pdf"
+              >
+                Download CV
+              </a>
+            </Button>
           </ButtonGroup>
         </CardActions>
       </CardOverflow>
